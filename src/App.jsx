@@ -7,7 +7,8 @@ import './App.css'
 
 function App() {
   const dispatch=useDispatch();
-  const data=useSelector((state)=>console.log(state));
+  const data=useSelector((state)=>{return state.app})
+
 
   
   
@@ -16,6 +17,11 @@ function App() {
     <>
       <div>
         <button onClick={()=>{dispatch(getAllData())}}>Click here to fetch data</button>
+        {data.users.map((value,index)=>{
+          return(<li key={index}>{value.login}</li>)
+          console.log(value)
+
+        })}
       </div>
     </>
   )
